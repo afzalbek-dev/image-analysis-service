@@ -39,6 +39,8 @@ An enterprise-ready, high-performance image analysis and perceptual deduplicatio
    - Bounded sub-region rectangular window cropping.
    - Luminance grayscale conversion and RGB inversion.
    - Multi-format encoding (PNG, JPEG with configurable quality).
+7. **Object Detection**:
+   - **Status: NOT IMPLEMENTED / PLANNED**. The current production release focuses strictly on deterministic computer vision (metadata, color clustering, sharpness/blur inspection, perceptual hashing, deduplication, and transformation). Machine learning/neural object detection is not implemented in this release.
 
 ---
 
@@ -293,11 +295,11 @@ go test -v ./internal/api/...
 
 ## Known Limitations & Roadmap
 
-- **Current Limitations**: In-memory registry resets on process restart; video frames must be extracted before submission.
+- **Current Limitations**: Object detection is **not implemented** in the current release (scheduled for future ONNX runtime integration); in-memory registry resets on process restart; video frames must be extracted before submission.
 - **Roadmap**:
-  1. Add persistent Redis and PostgreSQL storage drivers for billions of fingerprints.
-  2. Implement VP8 / WebP native decoder support.
-  3. Integrate ONNX neural runtime for deep convolutional feature embedding comparison.
+  1. Implement neural object and face detection using ONNX runtime / Go bindings.
+  2. Add persistent Redis and PostgreSQL storage drivers for billions of fingerprints.
+  3. Implement VP8 / WebP native decoder support.
 
 ---
 
